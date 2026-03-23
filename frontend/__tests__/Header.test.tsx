@@ -10,7 +10,7 @@ describe('Header', () => {
 
   it('renders project group number', () => {
     render(<HomePage />)
-    expect(screen.getByText(/Project Group #43/i)).toBeInTheDocument()
+    expect(screen.getByText(/Project Group - #43/i)).toBeInTheDocument()
   })
 
   it('renders author name', () => {
