@@ -1,6 +1,5 @@
 /**
- * TDD - Red phase: contract for Sprint Planning homepage.
- * Validates README coding tasks are broken into Agile sprints.
+ * TDD - contract for Sprint Planning homepage.
  */
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
@@ -24,27 +23,27 @@ describe('Sprint Planning Homepage', () => {
 
   it('renders LePaRD acquisition task', () => {
     render(<HomePage />)
-    expect(screen.getByText(/LePaRD/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/LePaRD/i).length).toBeGreaterThanOrEqual(1)
   })
 
   it('renders BM25 indexing task', () => {
     render(<HomePage />)
-    expect(screen.getByText(/BM25/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/BM25/i).length).toBeGreaterThanOrEqual(1)
   })
 
   it('renders BGE-M3 dense retrieval task', () => {
     render(<HomePage />)
-    expect(screen.getByText(/BGE-M3/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/BGE-M3/i).length).toBeGreaterThanOrEqual(1)
   })
 
   it('renders evaluation task with NLI', () => {
     render(<HomePage />)
-    expect(screen.getByText(/NLI|DeBERTa/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/NLI|DeBERTa/i).length).toBeGreaterThanOrEqual(1)
   })
 
   it('renders W&B experiment tracking task', () => {
     render(<HomePage />)
-    expect(screen.getByText(/W&B|wandb/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/W&B|wandb/i).length).toBeGreaterThanOrEqual(1)
   })
 
   it('each sprint card shows status badge', () => {
