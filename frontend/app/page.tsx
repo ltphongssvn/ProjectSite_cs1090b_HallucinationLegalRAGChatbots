@@ -156,7 +156,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="bg-white border border-gray-200 rounded-xl px-6 py-4 shadow-sm min-w-[180px]">
-            <p className="text-base font-bold text-gray-800 mb-2">Project Group #43:</p>
+            <p className="text-base font-bold text-gray-800 mb-2">Project Group #43: <a href="https://github.com/ltphongssvn/cs1090b_HallucinationLegalRAGChatbots" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">GitHub</a></p>
             <ol className="list-decimal list-inside space-y-1 text-sm text-gray-700">
               <li>Thanh Phong Le</li>
               <li className="text-gray-400">...</li>
