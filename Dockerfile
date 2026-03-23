@@ -12,11 +12,12 @@ COPY --from=ghcr.io/astral-sh/uv:0.9.5 /uv /usr/local/bin/uv
 # Copy dependency files first (layer caching)
 COPY pyproject.toml uv.lock ./
 
-# Install runtime dependencies only
-RUN uv sync --frozen --no-dev
+# Install all dependencies including dev (for tests)
+RUN uv sync --frozen
 
-# Copy source
+# Copy source and tests
 COPY src/ ./src/
+COPY tests/ ./tests/
 
 # Non-root user for security
 RUN useradd -m -u 1001 appuser && chown -R appuser:appuser /app
