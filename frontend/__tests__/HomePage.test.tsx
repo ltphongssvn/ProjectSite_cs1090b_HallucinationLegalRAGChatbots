@@ -21,12 +21,12 @@ describe('HomePage', () => {
 
   it('renders milestone 1 with correct due date', () => {
     render(<HomePage />)
-    expect(screen.getByText(/March 24/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/March 24/i).length).toBeGreaterThanOrEqual(1)
   })
 
   it('renders milestone 4 as final deliverable', () => {
     render(<HomePage />)
-    expect(screen.getByText(/May 12/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/May 12/i).length).toBeGreaterThanOrEqual(1)
   })
 
   it('renders project sprint timeline section', () => {
