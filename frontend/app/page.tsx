@@ -143,13 +143,26 @@ export default function HomePage() {
       <div className="max-w-5xl mx-auto space-y-16">
 
         {/* Header */}
-        <header>
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            Reducing Hallucination in Legal RAG Chatbots
-          </h1>
-          <p className="text-lg text-gray-600">
-            CS1090B — Harvard University · Thanh Phong Le · phl690@g.harvard.edu
-          </p>
+        <header className="flex flex-col sm:flex-row justify-between items-start gap-6">
+          <div>
+            <h1 className="text-4xl font-bold text-gray-900 mb-1">
+              Reducing Hallucination in Legal RAG Chatbots
+            </h1>
+            <p className="text-lg font-semibold text-gray-700 mb-1">
+              COMPSCI 1090B: Data Science 2: Advanced Topics in Data Science
+            </p>
+            <p className="text-base text-gray-500">
+              Harvard University · phl690@g.harvard.edu
+            </p>
+          </div>
+          <div className="bg-white border border-gray-200 rounded-xl px-6 py-4 shadow-sm min-w-[180px]">
+            <p className="text-base font-bold text-gray-800 mb-2">Project Group #43:</p>
+            <ol className="list-decimal list-inside space-y-1 text-sm text-gray-700">
+              <li>Thanh Phong Le</li>
+              <li className="text-gray-400">...</li>
+              <li className="text-gray-400">...</li>
+            </ol>
+          </div>
         </header>
 
         {/* Pipeline Status */}
@@ -173,7 +186,6 @@ export default function HomePage() {
               <div
                 key={sprint.id}
                 data-testid="sprint-card"
-                data-testid-sprint={`sprint-${sprint.id}`}
                 className={`border rounded-xl p-6 ${statusColors[sprint.status]}`}
               >
                 <div className="flex justify-between items-center flex-wrap gap-2 mb-4">
