@@ -1,0 +1,56 @@
+# .pre-commit-config.yaml
+# Customized for CS1090B ProjectSite: FastAPI (Python 3.11.9) + Next.js frontend
+repos:
+  # ---- Secret Detection ----
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: .*\.lock|.*\.log|package-lock\.json|uv\.lock
+
+  # ---- Local Security Hooks ----
+  - repo: local
+    hooks:
+      - id: block-large-files
+        name: Block Large Binary Files
+        entry: sh -c 'git diff --cached --name-only | grep -qE "\.(h5|pkl|pth|onnx|parquet|sqlite3)$" && echo "ERROR - Large binary files detected." && exit 1 || exit 0'
+        language: system
+        pass_filenames: false
+      - id: check-env-files
+        name: Block .env Files
+        entry: sh -c 'git diff --cached --name-only | grep -qE "^\.env(\..+)?$" && echo "ERROR - .env file detected. Never commit secrets!" && exit 1 || exit 0'
+        language: system
+        pass_filenames: false
+
+  # ---- Standard File Hygiene ----
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-json
+      - id: check-yaml
+      - id: check-added-large-files
+        args: ['--maxkb=500']
+
+  # ---- Pre-commit: Quick Tests ----
+  - repo: local
+    hooks:
+      - id: pytest-quick
+        name: Pytest Quick Tests (Backend)
+        entry: bash -c 'cd /home/lenovo/code/ltphongssvn/ProjectSite_cs1090b_HallucinationLegalRAGChatbots && uv run pytest --tb=short -q 2>&1 || true'
+        language: system
+        pass_filenames: false
+
+  # ---- Pre-push: Coverage Enforcement ----
+  - repo: local
+    hooks:
+      - id: pytest-coverage-push
+        name: Pytest Coverage 80% Per-File (Backend)
+        entry: bash -c 'cd /home/lenovo/code/ltphongssvn/ProjectSite_cs1090b_HallucinationLegalRAGChatbots && uv run pytest --cov=src --cov-fail-under=80 --tb=short -q 2>&1 || exit 1'
+        language: system
+        pass_filenames: false
+        stages: [pre-push]

@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Large binary/model files
+*.h5
+*.pkl
+*.pth
+*.onnx
+*.parquet
+*.sqlite3
+
+# Node
+node_modules/
+.next/
+
+# OS
+.DS_Store
