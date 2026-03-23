@@ -15,6 +15,6 @@ describe('Header', () => {
 
   it('renders author name', () => {
     render(<HomePage />)
-    expect(screen.getByText(/Thanh Phong Le/i)).toBeInTheDocument()
+    expect(screen.getByText(/PHONG LE/i)).toBeInTheDocument()
   })
 })
