@@ -8,38 +8,25 @@ describe('Environment Page', () => {
     expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument()
   })
 
-  it('renders setup.sh bootstrap output section', () => {
+  it('renders setup.sh screenshot', () => {
     render(<EnvironmentPage />)
-    expect(screen.getByTestId('setup-sh-output')).toBeInTheDocument()
+    expect(screen.getByAltText(/setup\.sh bootstrap/i)).toBeInTheDocument()
   })
 
-  it('renders GPU info', () => {
+  it('renders Cell 1 screenshot', () => {
     render(<EnvironmentPage />)
-    expect(screen.getAllByText(/NVIDIA L4/i).length).toBeGreaterThanOrEqual(1)
+    expect(screen.getByAltText(/cell 1/i)).toBeInTheDocument()
   })
 
-  it('renders Python version', () => {
+  it('renders Cell 2 screenshot', () => {
     render(<EnvironmentPage />)
-    expect(screen.getAllByText(/3\.11\.9/i).length).toBeGreaterThanOrEqual(1)
+    expect(screen.getByAltText(/cell 2/i)).toBeInTheDocument()
   })
 
-  it('renders verified environment section from Cell 1', () => {
+  it('renders downloadable setup.sh link', () => {
     render(<EnvironmentPage />)
-    expect(screen.getByTestId('cell1-env')).toBeInTheDocument()
-  })
-
-  it('renders dataset summary from Cell 2', () => {
-    render(<EnvironmentPage />)
-    expect(screen.getByTestId('cell2-dataset')).toBeInTheDocument()
-  })
-
-  it('renders 1465484 total cases in dataset summary', () => {
-    render(<EnvironmentPage />)
-    expect(screen.getAllByText(/1,465,484/i).length).toBeGreaterThanOrEqual(1)
-  })
-
-  it('renders all setup steps passed', () => {
-    render(<EnvironmentPage />)
-    expect(screen.getAllByText(/PASS/i).length).toBeGreaterThanOrEqual(1)
+    const link = screen.getByRole('link', { name: /download setup\.sh/i })
+    expect(link).toHaveAttribute('href', '/environment/setup_sh.txt')
+    expect(link).toHaveAttribute('download')
   })
 })
