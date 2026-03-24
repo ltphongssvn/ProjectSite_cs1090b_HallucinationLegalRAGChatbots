@@ -22,5 +22,7 @@ COPY --from=builder /app/.next/static ./.next/static
 RUN chown -R appuser:appuser /app
 USER appuser
 
+ENV HOSTNAME="0.0.0.0"
+ENV PORT=3000
 EXPOSE 3000
 CMD ["sh", "-c", "PORT=${PORT:-3000} node server.js"]
