@@ -168,32 +168,47 @@ export default function HomePage() {
           </div>
         </header>
 
-        {/* TF Reviewer Comments & Responses — PROMINENT FIRST SECTION */}
+        {/* TF Reviewer Comments & Responses */}
         <section data-testid="reviewer-response" className="bg-red-50 border-2 border-red-300 rounded-2xl p-8">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-2xl">⚠️</span>
-            <h2 className="text-2xl font-bold text-red-800">
-              TF Reviewer Comments & Instructor Notes — Addressed
-            </h2>
+          <div className="flex items-center gap-3 mb-6 flex-wrap">
+            <h2 className="text-2xl font-bold text-red-800">TF Reviewer Comments &amp; Instructor Notes — Addressed</h2>
             <span className="ml-auto px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full uppercase">All Resolved</span>
           </div>
-          <div className="space-y-6">
-            {reviewerConcerns.map((item) => (
-              <div key={item.id} className="bg-white rounded-xl border border-red-200 p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded uppercase">{item.label}</span>
-                  <span className="px-2 py-0.5 bg-green-100 text-green-700 text-xs font-bold rounded uppercase">✓ Resolved</span>
-                </div>
-                <div className="mb-4">
-                  <p className="text-sm font-semibold text-gray-500 mb-1">Concern:</p>
-                  <p className="text-sm text-red-700 italic">&ldquo;{item.concern}&rdquo;</p>
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-gray-500 mb-1">Response:</p>
-                  <p className="text-sm text-gray-800">{item.response}</p>
-                </div>
-              </div>
-            ))}
+
+          {/* TF Reviewer */}
+          <div className="bg-white rounded-xl border border-red-200 p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded uppercase">TF Reviewer</span>
+              <span className="px-2 py-0.5 bg-green-100 text-green-700 text-xs font-bold rounded uppercase">Resolved</span>
+            </div>
+            <p className="text-sm font-semibold text-gray-500 mb-1">Concern:</p>
+            <p className="text-sm text-red-700 italic mb-4">&ldquo;It is not clear where the human-annotated hallucination rate comes from. The proposal does not mention how embedding methods will be trained to encode legal text.&rdquo;</p>
+            <p className="text-sm font-semibold text-gray-500 mb-2">Response:</p>
+            <ul className="space-y-3 text-sm text-gray-800">
+              <li className="flex items-start gap-2"><span className="mt-1 text-green-600 font-bold">•</span><span><strong>No human annotation required.</strong> Hallucination measurement is fully automated across three tiers:</span></li>
+              <li className="ml-4 flex items-start gap-2"><span className="mt-1 text-blue-500 font-bold">–</span><span><strong>Tier A — Retrieval ground truth:</strong> LePaRD 4M+ expert-annotated citation pairs serve as gold-standard retrieval ground truth; evaluation capped at 10K–50K pairs. Metrics: Recall@k, MRR, NDCG@10.</span></li>
+              <li className="ml-4 flex items-start gap-2"><span className="mt-1 text-blue-500 font-bold">–</span><span><strong>Tier B — NLI hallucination measurement:</strong> <code className="bg-gray-100 px-1 rounded text-xs">MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli</code> classifies each atomic claim independently against individual retrieved chunks, running fully locally with no API calls. 512-token limit handled via repo-certified overflow windowing (<code className="bg-gray-100 px-1 rounded text-xs">return_overflowing_tokens=True, max_length=512, stride=64</code>, <code className="bg-gray-100 px-1 rounded text-xs">use_fast=False</code>); window-level logits aggregated per chunk. Contradiction rate normalized by per-query claim count and per 1K tokens. Zero-claim responses excluded and reported separately. NLI confidence scores treated as diagnostic indicators only.</span></li>
+              <li className="ml-4 flex items-start gap-2"><span className="mt-1 text-blue-500 font-bold">–</span><span><strong>Tier C — Citation existence verification:</strong> Local SQLite index (<code className="bg-gray-100 px-1 rounded text-xs">check_same_thread=False</code>; read-only) provides O(1) citation lookup. NULL → Hard Citation Hallucination logged, NLI skipped. Found with no local NLI support → <code className="bg-gray-100 px-1 rounded text-xs">CitationFound_NoLocalSupport</code> logged. Citation hash (<code className="bg-gray-100 px-1 rounded text-xs">opinion_id + anchor span</code>) logged per lookup. Windowing: (1) Hybrid reranker; (2) keyword/regex; (3) sliding-window fallback.</span></li>
+              <li className="flex items-start gap-2"><span className="mt-1 text-green-600 font-bold">•</span><span><strong>Embedding model training:</strong> BGE-M3 fine-tuned with <code className="bg-gray-100 px-1 rounded text-xs">MultipleNegativesRankingLoss</code> on 500K–1M capped LePaRD pairs (lr=1e-5, warmup=10%, batch=32, epochs=3). CLS pooling enforced per BAAI config; runtime assertion in <code className="bg-gray-100 px-1 rounded text-xs">model_loader.py</code>; pooling flags logged to W&amp;B. Legal-BERT optional domain-reference (lr=2e-5, batch=32, epochs=3). BM25 requires no training (k1=1.5, b=0.75). All architectures evaluated with <code className="bg-gray-100 px-1 rounded text-xs">mistralai/Mistral-7B-Instruct-v0.2</code> held constant (greedy decoding, chat template enforced).</span></li>
+            </ul>
+          </div>
+
+          {/* Instructor */}
+          <div className="bg-white rounded-xl border border-red-200 p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded uppercase">Instructor</span>
+              <span className="px-2 py-0.5 bg-green-100 text-green-700 text-xs font-bold rounded uppercase">Resolved</span>
+            </div>
+            <p className="text-sm font-semibold text-gray-500 mb-1">Concern:</p>
+            <p className="text-sm text-red-700 italic mb-4">&ldquo;Warning: groups should only consider this project if they have a plan for addressing the concerns regarding human-annotation of hallucinations and training of the embedding model. Without addressing the annotation problem the project will be infeasible.&rdquo;</p>
+            <p className="text-sm font-semibold text-gray-500 mb-2">Response:</p>
+            <ul className="space-y-3 text-sm text-gray-800">
+              <li className="flex items-start gap-2"><span className="mt-1 text-green-600 font-bold">•</span><span><strong>Human annotation bottleneck eliminated.</strong> LePaRD (ACL 2024) provides 4M+ expert-annotated legal citation pairs as gold-standard retrieval ground truth. DeBERTa-v3 NLI runs fully locally on cluster GPU (bfloat16, ~3GB VRAM); no API calls, no human reviewers, no annotation bottleneck.</span></li>
+              <li className="flex items-start gap-2"><span className="mt-1 text-green-600 font-bold">•</span><span><strong>Compute feasibility confirmed and capped.</strong> Training: 500K–1M pairs (not 3.2M full LePaRD). Retrieval eval: 10K–50K queries. Generation eval: 1,000 stratified queries (±2.5pp at 95% CI). Iteration corpus: ~150K opinions (10% subset) for fast iteration; full 1.46M for final runs.</span></li>
+              <li className="flex items-start gap-2"><span className="mt-1 text-green-600 font-bold">•</span><span><strong>Infrastructure already operational.</strong> 1,465,484 federal appellate opinions downloaded, filtered, sharded (7.6GB); DVC + S3 versioning active; all <code className="bg-gray-100 px-1 rounded text-xs">src/</code> modules implemented and tested. Environment asserts <code className="bg-gray-100 px-1 rounded text-xs">transformers.__version__ == &quot;4.39.3&quot;</code>, <code className="bg-gray-100 px-1 rounded text-xs">torch.cuda.is_bf16_supported()</code>, and <code className="bg-gray-100 px-1 rounded text-xs">get_device_capability()[0] &gt;= 8</code> at startup.</span></li>
+              <li className="flex items-start gap-2"><span className="mt-1 text-green-600 font-bold">•</span><span><strong>Sequential model loading prevents VRAM exhaustion.</strong> Single 23.7GB L4 (SLURM-allocated). BGE-M3 (~2.27GB), reranker (~2GB), Mistral (~14–15GB + KV cache), DeBERTa (~3GB) loaded one phase at a time; explicit DataLoader deletion + <code className="bg-gray-100 px-1 rounded text-xs">torch.cuda.empty_cache()</code> + <code className="bg-gray-100 px-1 rounded text-xs">gc.collect()</code> between phases; memory stats + CUDA stream sync time + <code className="bg-gray-100 px-1 rounded text-xs">allow_tf32</code> state logged per phase.</span></li>
+              <li className="flex items-start gap-2"><span className="mt-1 text-green-600 font-bold">•</span><span><strong>Priority sequencing:</strong> LePaRD acquisition → 10–20% subset fast iteration → BM25 + BGE-M3 + Tier A → scale + Tier B/C.</span></li>
+            </ul>
           </div>
         </section>
 
