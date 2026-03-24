@@ -1,41 +1,12 @@
 /**
  * HomePage — CS1090B Project Site
- * Agile Sprint Planning from README pipeline status + coding tasks
  */
 
 const milestones = [
-  {
-    id: 1,
-    title: 'Milestone 1: Group Formation & Project Selection',
-    due: 'March 24, 2025',
-    weight: '2%',
-    description: 'Select top 5 project choices. Groups of 3–5 students. Staff assigns groups March 27.',
-    status: 'complete',
-  },
-  {
-    id: 2,
-    title: 'Milestone 2: Data Wrangling & Project Redefinition',
-    due: 'April 10, 2025',
-    weight: '10%',
-    description: 'Data acquisition, preprocessing, missing data, imbalances, scaling. 10-min presentation.',
-    status: 'complete',
-  },
-  {
-    id: 3,
-    title: 'Milestone 3: EDA, Initial Modeling & Pipeline Development',
-    due: 'April 24, 2025',
-    weight: '20%',
-    description: 'EDA, baseline model, training/testing pipeline, evaluation metrics. 10-min presentation.',
-    status: 'in-progress',
-  },
-  {
-    id: 4,
-    title: 'Milestone 4: Final Modeling & Deliverables',
-    due: 'May 12, 2025',
-    weight: '68%',
-    description: '2000–2500 word report, 6-min video, well-commented Python notebook.',
-    status: 'upcoming',
-  },
+  { id: 1, title: 'Milestone 1: Group Formation & Project Selection', due: 'March 24, 2025', weight: '2%', description: 'Select top 5 project choices. Groups of 3–5 students. Staff assigns groups March 27.', status: 'complete' },
+  { id: 2, title: 'Milestone 2: Data Wrangling & Project Redefinition', due: 'April 10, 2025', weight: '10%', description: 'Data acquisition, preprocessing, missing data, imbalances, scaling. 10-min presentation.', status: 'complete' },
+  { id: 3, title: 'Milestone 3: EDA, Initial Modeling & Pipeline Development', due: 'April 24, 2025', weight: '20%', description: 'EDA, baseline model, training/testing pipeline, evaluation metrics. 10-min presentation.', status: 'in-progress' },
+  { id: 4, title: 'Milestone 4: Final Modeling & Deliverables', due: 'May 12, 2025', weight: '68%', description: '2000–2500 word report, 6-min video, well-commented Python notebook.', status: 'upcoming' },
 ]
 
 const sprints = [
@@ -50,6 +21,8 @@ const sprints = [
       { name: 'DVC + S3 artifact versioning operational', status: 'complete' },
       { name: 'All src/ modules implemented and tested', status: 'complete' },
       { name: 'SQLite citation index built via src/extract.py', status: 'complete' },
+      { name: 'ruff + mypy linting configured in pyproject.toml', status: 'complete' },
+      { name: 'pip-audit CVE scan + CycloneDX SBOM generation in CI', status: 'complete' },
     ],
   },
   {
@@ -59,6 +32,8 @@ const sprints = [
     status: 'in-progress',
     tasks: [
       { name: 'CourtListener RAG-readiness refinement (Cell 2 — tokenizer-aware chunking 1024 subwords)', status: 'in-progress' },
+      { name: 'spaCy stripped pipeline setup (exclude=["ner","parser","lemmatizer"]), nlp.max_length set for full appellate opinions', status: 'in-progress' },
+      { name: 'Citation-aware chunk splits with metadata per chunk: court_id, year, is_precedential, opinion_id, chunk_index', status: 'pending' },
       { name: 'LePaRD acquisition via HuggingFace — Priority 1 (cap 500K–1M pairs)', status: 'pending' },
       { name: 'DVC push data shards to S3 cs1090b-hallucinationlegalragchatbots', status: 'pending' },
       { name: 'Train/val/test split — src/split.py (500K train / 50K val / 10K–50K test)', status: 'pending' },
@@ -75,6 +50,8 @@ const sprints = [
       { name: 'BGE-M3 fine-tuning: MultipleNegativesRankingLoss, lr=1e-5, batch=32, epochs=3', status: 'pending' },
       { name: 'Hybrid: BM25+BGE-M3+bge-reranker-v2-m3 CrossEncoder (top-50→top-10)', status: 'pending' },
       { name: 'FAISS IVF for full-corpus: index.train() on 100K subset, assert index.is_trained', status: 'pending' },
+      { name: 'Log recall@k vs nprobe on validation set to justify IVF parameters; log nprobe/nlist to W&B', status: 'pending' },
+      { name: 'Legal-BERT bi-encoder: 512-subword chunks, MultipleNegativesRankingLoss, lr=2e-5, warmup=10%, batch=32, epochs=3 (optional domain-reference)', status: 'pending' },
     ],
   },
   {
@@ -85,7 +62,9 @@ const sprints = [
     tasks: [
       { name: 'Tier A: LePaRD Recall@k, MRR, NDCG@10 on 10K–50K capped test set', status: 'pending' },
       { name: 'Tier B: DeBERTa-v3 NLI classifier — 1,000 stratified queries, contradiction rate', status: 'pending' },
+      { name: 'Log window count distribution per chunk; log window index per label', status: 'pending' },
       { name: 'Tier C: SQLite citation lookup — Hard Citation Hallucination + CitationFound_NoLocalSupport', status: 'pending' },
+      { name: 'Log citation anchor offset on sliding-window fallback', status: 'pending' },
       { name: 'Sequential loading: BGE-M3 → Reranker → Mistral-7B → NLI → SQLite', status: 'pending' },
       { name: 'W&B experiment tracking: VRAM, GPU hours, metrics per phase', status: 'pending' },
     ],
@@ -96,8 +75,12 @@ const sprints = [
     dates: 'May 5 – May 12',
     status: 'pending',
     tasks: [
-      { name: 'Paired bootstrap significance tests (B=10,000), Cohen\'s d, BH-FDR', status: 'pending' },
+      { name: "Paired bootstrap significance tests (B=10,000), Cohen's d, BH-FDR", status: 'pending' },
       { name: 'Ablation: BGE-M3 vs Hybrid, w/o reranker, Legal-BERT, k∈{1,5,10,20}', status: 'pending' },
+      { name: 'Ablation: training size 100K vs 500K vs 1M pairs', status: 'pending' },
+      { name: 'Ablation: chunk overlap 128 vs 64 subwords on 10% subset', status: 'pending' },
+      { name: 'Ablation: Stage 3 normalization on/off', status: 'pending' },
+      { name: 'Ablation: Contradiction vs Neutral vs combined metric sensitivity', status: 'pending' },
       { name: 'wandb_logger.py: full per-phase VRAM, pooling flags, score distributions', status: 'pending' },
       { name: 'Final report: 2000–2500 words', status: 'pending' },
       { name: 'Video presentation: 6 minutes', status: 'pending' },
@@ -156,7 +139,10 @@ export default function HomePage() {
             </p>
           </div>
           <div className="bg-white border border-gray-200 rounded-xl px-6 py-4 shadow-sm min-w-[180px]">
-            <p className="text-base font-bold text-gray-800 mb-2">Project Group - #43: <a href="https://github.com/ltphongssvn/cs1090b_HallucinationLegalRAGChatbots" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">GitHub</a></p>
+            <p className="text-base font-bold text-gray-800 mb-2">
+              Project Group - #43:{' '}
+              <a href="https://github.com/ltphongssvn/cs1090b_HallucinationLegalRAGChatbots" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">GitHub</a>
+            </p>
             <ol className="list-decimal list-inside space-y-1 text-sm text-gray-700">
               <li>PHONG LE</li>
               <li className="text-gray-400">...</li>
@@ -183,11 +169,7 @@ export default function HomePage() {
           <h2 className="text-2xl font-semibold text-gray-800 mb-6">Agile Sprint Plan — Coding Tasks</h2>
           <div className="space-y-6">
             {sprints.map((sprint) => (
-              <div
-                key={sprint.id}
-                data-testid="sprint-card"
-                className={`border rounded-xl p-6 ${statusColors[sprint.status]}`}
-              >
+              <div key={sprint.id} data-testid="sprint-card" className={`border rounded-xl p-6 ${statusColors[sprint.status]}`}>
                 <div className="flex justify-between items-center flex-wrap gap-2 mb-4">
                   <div data-testid={`sprint-${sprint.id}`}>
                     <h3 className="text-lg font-semibold">{sprint.title}</h3>
