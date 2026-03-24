@@ -8,6 +8,7 @@ const navLinks = [
   { href: '/methodology', label: 'Methodology' },
   { href: '/architectures', label: 'Architectures' },
   { href: '/datasets', label: 'Datasets' },
+  { href: '/environment', label: 'Environment' },
   { href: '/reproducibility', label: 'Reproducibility' },
   { href: '/results', label: 'Results' },
   { href: '/demo', label: 'Demo' },

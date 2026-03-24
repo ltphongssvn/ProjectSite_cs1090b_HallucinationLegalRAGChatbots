@@ -10,7 +10,7 @@ export default function EnvironmentPage() {
       </div>
 
       <div className="flex items-center gap-4">
-        <a href="/environment/setup_sh.txt" download="setup.sh" className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+        <a href="/environment/setup_sh.txt" download="setup.sh.txt" className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors">
           Download setup.sh
         </a>
         <span className="text-sm text-gray-500">Full bootstrap script. Python 3.11.9, torch 2.0.1+cu117, 4x NVIDIA L4</span>
