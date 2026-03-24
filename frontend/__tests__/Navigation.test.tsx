@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
-import RootLayout from '../app/layout'
+import Navbar from '../app/components/Navbar'
 
-describe('Site Navigation', () => {
-  it('renders site title in metadata', () => {
-    render(<RootLayout>{<div/>}</RootLayout>)
-    expect(document.title || 'CS1090B').toBeTruthy()
+describe('Navigation', () => {
+  it('renders home link', () => {
+    render(<Navbar />)
+    expect(screen.getByRole('link', { name: /Legal RAG|CS1090B/i })).toBeInTheDocument()
   })
 })
