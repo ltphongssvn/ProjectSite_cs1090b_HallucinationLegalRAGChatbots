@@ -152,7 +152,7 @@ export default function HomePage() {
               COMPSCI 1090B: Data Science 2: Advanced Topics in Data Science
             </p>
             <p className="text-base text-gray-500">
-              Harvard University · phl690@g.harvard.edu · 2025-2026 Spring
+              Harvard University · 2025-2026 Spring
             </p>
           </div>
           <div className="bg-white border border-gray-200 rounded-xl px-6 py-4 shadow-sm min-w-[180px]">
@@ -161,9 +161,9 @@ export default function HomePage() {
               <a href="https://github.com/ltphongssvn/cs1090b_HallucinationLegalRAGChatbots" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">GitHub</a>
             </p>
             <ol className="list-decimal list-inside space-y-1 text-sm text-gray-700">
+              <li>Alex Oort Alonso</li>
+              <li>Allan Korir</li>
               <li>PHONG LE</li>
-              <li className="text-gray-400">...</li>
-              <li className="text-gray-400">...</li>
             </ol>
           </div>
         </header>
