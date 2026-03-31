@@ -165,6 +165,7 @@ export default function HomePage() {
               <li>Allan Korir</li>
               <li>PHONG LE</li>
             </ol>
+            <p className="text-xs text-gray-500 mt-3"><strong>TF:</strong> Zac Sardi-Santos</p>
           </div>
         </header>
 
