@@ -164,8 +164,12 @@ export default function HomePage() {
               <li>Alex Oort Alonso</li>
               <li>Allan Korir</li>
               <li>PHONG LE</li>
+              <li>Brit Biddle</li>
             </ol>
             <p className="text-sm text-gray-700 mt-3">Assigned Group's Teaching Fellow contact: Zac Sardi-Santos</p>
+            <hr className="my-2 border-gray-200" />
+            <p className="text-sm font-semibold text-gray-700">Milestone 2</p>
+            <p className="text-sm text-gray-600">Presentation with TF: at 4:00 PM EST on Friday, April 10, 2026.</p>
           </div>
         </header>
 
