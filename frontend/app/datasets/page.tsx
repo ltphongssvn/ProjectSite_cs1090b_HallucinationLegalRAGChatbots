@@ -1,6 +1,6 @@
 export default function DatasetsPage() {
   const datasets = [
-    { name: 'CourtListener Federal Appellate', size: '1,465,484 opinions', license: 'CC BY-ND 4.0', role: 'Retrieval corpus + SQLite citation index', status: '🔄 In progress' },
+    { name: 'CourtListener Federal Appellate', size: '1,465,484 opinions', license: 'CC BY-ND 4.0', role: 'Retrieval corpus + SQLite citation index', status: '✅ Complete' },
     { name: 'LePaRD (ACL 2024)', size: '~4M pairs (cap 500K–1M)', license: 'Open research', role: 'Training + evaluation (Priority 1)', status: '⏳ Pending' },
   ]
   return (
