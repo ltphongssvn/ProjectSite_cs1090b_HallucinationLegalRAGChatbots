@@ -167,11 +167,11 @@ export default function HomePage() {
               <li>Brit Biddle</li>
             </ol>
             <hr className="my-2 border-gray-200" />
-            <p className="text-sm text-gray-700">Assigned Group's Teaching Fellow contact: Zac Sardi-Santos</p>
+            <p className="text-sm text-gray-700">Assigned Group's Teaching Fellow contact:</p><p className="text-sm text-gray-700">Zac Sardi-Santos</p>
             <hr className="my-2 border-gray-200" />
-            <p className="text-sm text-gray-700">Milestone 2 Presentation with TF: Friday, April 10, 2026, at 4:00 PM ET</p>
+            <p className="text-sm text-gray-700">Milestone 2 Presentation with TF:</p><p className="text-sm text-gray-700">Friday, April 10, 2026, at 4:00 PM ET</p>
             <hr className="my-2 border-gray-200" />
-            <p className="text-sm text-gray-700">Team meeting: Monday, April 6, 2026, at 8:00 p.m. ET</p>
+            <p className="text-sm text-gray-700">Team meeting:</p><p className="text-sm text-gray-700">Monday, April 6, 2026, at 8:00 p.m. ET</p>
           </div>
         </header>
 
