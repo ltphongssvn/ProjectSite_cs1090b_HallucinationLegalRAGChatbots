@@ -8,7 +8,7 @@ export default function ArchitecturesPage() {
   return (
     <div className="w-full px-6 py-12 max-w-5xl mx-auto">
       <h1 className="text-4xl font-bold text-gray-900 mb-4">Architectures</h1>
-      <p className="text-lg text-gray-600 mb-8">Four retrieval architectures compared under a frozen Mistral-7B-Instruct-v0.2 generator (greedy decoding, chat template applied).</p>
+      <p className="text-lg text-gray-600 mb-8">Four retrieval architectures compared under a frozen OpenAI gpt-5.4-nano generator (temperature=0.1, top_p=0.95, API-based, no local weights).</p>
       <div className="overflow-x-auto mb-8">
         <table className="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
           <thead className="bg-gray-100">
