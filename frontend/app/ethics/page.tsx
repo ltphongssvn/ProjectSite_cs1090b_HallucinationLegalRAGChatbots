@@ -2,7 +2,7 @@ export default function EthicsPage() {
   const considerations = [
     { title: 'Public Datasets Only', desc: 'CourtListener data used under CC BY-ND 4.0. LePaRD is open research data. No private or proprietary legal data.' },
     { title: 'No Human Annotation', desc: 'Hallucination measurement is fully automated via LePaRD gold labels and DeBERTa-v3 NLI. No crowdsourced or paid annotators.' },
-    { title: 'No Built-in Moderation', desc: 'Mistral-7B-Instruct-v0.2 has no built-in moderation per its model card. Outputs used strictly for retrieval research under academic supervision.' },
+    { title: 'Third-Party API Generation', desc: 'Generation via OpenAI gpt-5.4-nano API. OpenAI applies its own moderation and usage policies; query/response pairs are sent to OpenAI per their data usage terms. No persistent context or user data stored with the provider beyond API transit. Outputs used strictly for retrieval research under academic supervision.' },
     { title: 'PII Handling', desc: 'PII handling follows CourtListener and LePaRD provider redaction practices. No additional PII collection or processing.' },
     { title: 'Scope Limitations', desc: 'Tier C verifies citation existence and local evidence support only — not full legal reasoning correctness. System outputs are not legal advice.' },
     { title: 'Academic Use Only', desc: 'This system is a research prototype. Results should not be used for actual legal practice or decision-making.' },
