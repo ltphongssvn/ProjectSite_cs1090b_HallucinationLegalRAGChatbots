@@ -65,7 +65,7 @@ const sprints = [
       { name: 'Log window count distribution per chunk; log window index per label', status: 'pending' },
       { name: 'Tier C: SQLite citation lookup — Hard Citation Hallucination + CitationFound_NoLocalSupport', status: 'pending' },
       { name: 'Log citation anchor offset on sliding-window fallback', status: 'pending' },
-      { name: 'Sequential loading: BGE-M3 → Reranker → Mistral-7B → NLI → SQLite', status: 'pending' },
+      { name: 'Sequential loading: BGE-M3 → NLI → SQLite (generation via OpenAI gpt-5.4-nano API, no local LLM weights)', status: 'pending' },
       { name: 'W&B experiment tracking: VRAM, GPU hours, metrics per phase', status: 'pending' },
     ],
   },
