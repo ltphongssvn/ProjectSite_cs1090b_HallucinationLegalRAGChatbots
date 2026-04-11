@@ -163,13 +163,13 @@ export default function HomePage() {
             <ol className="list-decimal list-inside space-y-1 text-sm text-gray-700 mt-1">
               <li>Alex Oort Alonso</li>
               <li>Allan Korir</li>
-              <li>PHONG LE</li>
+              <li>Phong Le</li>
               <li>Brit Biddle</li>
             </ol>
             <hr className="my-2 border-gray-200" />
             <p className="text-sm text-gray-700">Assigned Group's Teaching Fellow contact:</p><p className="text-sm text-gray-700">Zac Sardi-Santos</p>
             <hr className="my-2 border-gray-200" />
-            <p className="text-sm text-gray-700">Milestone 2 Presentation with TF:</p><p className="text-sm text-gray-700">Friday, April 10, 2026, at 4:00 PM ET</p>
+            <p className="text-sm text-gray-700">Milestone 2 Presentation with TF:</p><p className="text-sm text-gray-700">Friday, April 10, 2026, at 4:00 PM ET</p><p className="text-sm text-gray-700">Presentation slides, Notebook</p>
             <hr className="my-2 border-gray-200" />
             <p className="text-sm text-gray-700">Team meeting:</p><p className="text-sm text-gray-700">Monday, April 6, 2026, at 8:00 p.m. ET</p>
           </div>
