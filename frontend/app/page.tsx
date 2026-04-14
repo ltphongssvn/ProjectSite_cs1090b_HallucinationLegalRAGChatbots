@@ -171,7 +171,7 @@ export default function HomePage() {
             <hr className="my-2 border-gray-200" />
             <p className="text-sm text-gray-700">Milestone 2 Presentation with TF:</p><p className="text-sm text-gray-700">Friday, April 10, 2026, at 4:00 PM ET</p><p className="text-sm text-gray-700"><a href="https://github.com/ltphongssvn/cs1090b_HallucinationLegalRAGChatbots/blob/feature/data-acquisition/notebooks/Project_Group_%2343_pdf_v01.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">Presentation slides</a>, <a href="https://github.com/ltphongssvn/cs1090b_HallucinationLegalRAGChatbots/blob/feature/data-acquisition/notebooks/Project_Group_%2343_notebook_v07.ipynb" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">Notebook</a></p>
             <hr className="my-2 border-gray-200" />
-            <p className="text-sm text-gray-700">Team meeting:</p><p className="text-sm text-gray-700">Monday, April 6, 2026, at 8:00 p.m. ET</p>
+            <p className="text-sm font-semibold text-gray-700">Milestone 3 Presentation with TF:</p><p className="text-sm text-gray-700">Friday, April 24, 2026, at 4:00 PM ET</p><hr className="my-2 border-gray-200" /><p className="text-sm text-gray-700">Team meeting:</p><p className="text-sm text-gray-700">Monday, April 6, 2026, at 8:00 p.m. ET</p>
           </div>
         </header>
 
