@@ -29,7 +29,7 @@ const sprints = [
     id: 2,
     title: 'Sprint 2 — Data Wrangling & LePaRD Acquisition',
     dates: 'Apr 10 – Apr 17',
-    status: 'in-progress',
+    status: 'complete',
     tasks: [
       { name: 'CourtListener RAG-readiness refinement (Cell 2 — tokenizer-aware chunking 1024 subwords)', status: 'in-progress' },
       { name: 'spaCy stripped pipeline setup (exclude=["ner","parser","lemmatizer"]), nlp.max_length set for full appellate opinions', status: 'in-progress' },
