@@ -1,8 +1,8 @@
 export default function MethodologyPage() {
   const tiers = [
-    { id: 'A', title: 'Tier A — Retrieval Grounding', desc: 'LePaRD 4M+ expert-annotated citation pairs. Metrics: Hit@k, MRR, NDCG@10. Capped at 10K–50K test pairs.', status: 'pending' },
-    { id: 'B', title: 'Tier B — NLI Hallucination Detection', desc: 'DeBERTa-v3-large-mnli classifies each atomic claim against retrieved chunks. 1,000 stratified queries. Contradiction rate normalized by claim count and per 1K tokens. Fully local, no API.', status: 'pending' },
-    { id: 'C', title: 'Tier C — Citation Existence Check', desc: 'SQLite citation index lookup. NULL → Hard Citation Hallucination. Found + no NLI support → CitationFound_NoLocalSupport. Anchor-first windowing strategy.', status: 'pending' },
+    { id: 'A', title: 'Tier A — Retrieval Grounding', desc: 'LePaRD expert-annotated citation pairs. 20,877 unique queries over 7,813,273-chunk corpus. Metrics: Hit@1, Hit@5, Hit@10, Hit@100, MRR, NDCG@10. Two-stage semantic bridge (eyecite + rapidfuzz) produced 2,429,533 verified pairs.', status: 'complete' },
+    { id: 'B', title: 'Tier B — LLM-as-Judge Hallucination Detection', desc: 'gpt-4o-mini judges each generation against shown contexts, returning FAITHFUL / PARTIAL / HALLUCINATED. 5 ablations x 20,877 queries = 104,385 generations judged. Budget ~$53. 95% CIs ±0.86% to ±1.96%. Pearson r = -0.9624 (r²=92.6%) between Hit@10 and hallucination rate.', status: 'complete' },
+    { id: 'C', title: 'Tier C — Retrieval Ceiling Analysis', desc: 'Stratified evaluation by gold-cluster citation frequency (HEAD/TORSO/TAIL). Hit@100=0.375 ceiling defines irreducible hallucination floor ~56%. Per-query paired comparison: fine-tuned reranker wins 30.6x more queries than hub-concat. Symmetric leakage cleaning via RE2 prevented BM25 Hit@1 inflation from 2.5% to 18%+.', status: 'complete' },
   ]
   return (
     <div className="w-full px-6 py-12 max-w-4xl mx-auto">
