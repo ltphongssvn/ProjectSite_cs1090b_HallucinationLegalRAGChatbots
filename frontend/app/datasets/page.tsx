@@ -1,6 +1,6 @@
 export default function DatasetsPage() {
   const datasets = [
-    { name: 'CourtListener Federal Appellate', size: '1,465,484 opinions → 7,813,273 chunks (1,024-subword, 128-overlap)', license: 'CC BY-ND 4.0', role: 'Retrieval corpus + SQLite citation index', status: '✅ Complete' },
+    { name: 'CourtListener Federal Appellate', size: '1,465,484 opinions → 7,813,273 chunks (1,024-subword, 128-overlap)', license: 'CC BY-ND 4.0', role: 'Retrieval corpus — 7,813,273 chunks across 1,360,665 unique clusters, 13 federal circuits', status: '✅ Complete' },
     { name: 'LePaRD (ACL 2024)', size: '4M pairs → 2,429,533 verified (eyecite+rapidfuzz bridge, 60.74%) → 20,877 unique test queries', license: 'Open research (Mahari et al. ACL 2024)', role: 'Hard-negative mining + retrieval evaluation', status: '✅ Complete' },
   ]
   return (
