@@ -5,7 +5,7 @@
 const milestones = [
   { id: 1, title: 'Milestone 1: Group Formation & Project Selection', due: 'March 24, 2025', weight: '2%', description: 'Select top 5 project choices. Groups of 3–5 students. Staff assigns groups March 27.', status: 'complete' },
   { id: 2, title: 'Milestone 2: Data Wrangling & Project Redefinition', due: 'April 10, 2025', weight: '10%', description: 'Data acquisition, preprocessing, missing data, imbalances, scaling. 10-min presentation.', status: 'complete' },
-  { id: 3, title: 'Milestone 3: EDA, Initial Modeling & Pipeline Development', due: 'April 24, 2025', weight: '20%', description: 'EDA, baseline model, training/testing pipeline, evaluation metrics. 10-min presentation.', status: 'in-progress' },
+  { id: 3, title: 'Milestone 3: EDA, Initial Modeling & Pipeline Development', due: 'April 24, 2025', weight: '20%', description: 'EDA, baseline model, training/testing pipeline, evaluation metrics. 10-min presentation.', status: 'complete' },
   { id: 4, title: 'Milestone 4: Final Modeling & Deliverables', due: 'May 12, 2025', weight: '68%', description: '2000–2500 word report, 6-min video, well-commented Python notebook.', status: 'upcoming' },
 ]
 
@@ -31,59 +31,59 @@ const sprints = [
     dates: 'Apr 10 – Apr 17',
     status: 'complete',
     tasks: [
-      { name: 'CourtListener RAG-readiness refinement (Cell 2 — tokenizer-aware chunking 1024 subwords)', status: 'in-progress' },
-      { name: 'spaCy stripped pipeline setup (exclude=["ner","parser","lemmatizer"]), nlp.max_length set for full appellate opinions', status: 'in-progress' },
-      { name: 'Citation-aware chunk splits with metadata per chunk: court_id, year, is_precedential, opinion_id, chunk_index', status: 'pending' },
-      { name: 'LePaRD acquisition via HuggingFace — Priority 1 (cap 500K–1M pairs)', status: 'pending' },
-      { name: 'DVC push data shards to S3 cs1090b-hallucinationlegalragchatbots', status: 'pending' },
-      { name: 'Train/val/test split — src/split.py (500K train / 50K val / 10K–50K test)', status: 'pending' },
+      { name: 'CourtListener RAG-readiness refinement (Cell 2 — tokenizer-aware chunking 1024 subwords)', status: 'complete' },
+      { name: 'spaCy stripped pipeline setup (exclude=["ner","parser","lemmatizer"]), nlp.max_length set for full appellate opinions', status: 'complete' },
+      { name: 'Citation-aware chunk splits with metadata per chunk: court_id, year, is_precedential, opinion_id, chunk_index', status: 'complete' },
+      { name: 'LePaRD acquisition via HuggingFace — Priority 1 (cap 500K–1M pairs)', status: 'complete' },
+      { name: 'DVC push data shards to S3 cs1090b-hallucinationlegalragchatbots', status: 'complete' },
+      { name: 'Train/val/test split — src/split.py (500K train / 50K val / 10K–50K test)', status: 'complete' },
     ],
   },
   {
     id: 3,
     title: 'Sprint 3 — Index Generation & Model Training',
     dates: 'Apr 17 – Apr 24',
-    status: 'pending',
+    status: 'complete',
     tasks: [
-      { name: 'BM25 (bm25s) index over pre-chunked payloads from Stage 3', status: 'pending' },
-      { name: 'BGE-M3 FAISS Flat index for validation (CLS pooling, bfloat16)', status: 'pending' },
-      { name: 'BGE-M3 fine-tuning: MultipleNegativesRankingLoss, lr=1e-5, batch=32, epochs=3', status: 'pending' },
-      { name: 'Hybrid: BM25+BGE-M3+bge-reranker-v2-m3 CrossEncoder (top-50→top-10)', status: 'pending' },
-      { name: 'FAISS IVF for full-corpus: index.train() on 100K subset, assert index.is_trained', status: 'pending' },
-      { name: 'Log recall@k vs nprobe on validation set to justify IVF parameters; log nprobe/nlist to W&B', status: 'pending' },
-      { name: 'Legal-BERT bi-encoder: 512-subword chunks, MultipleNegativesRankingLoss, lr=2e-5, warmup=10%, batch=32, epochs=3 (optional domain-reference)', status: 'pending' },
+      { name: 'BM25 (bm25s) index over pre-chunked payloads from Stage 3', status: 'complete' },
+      { name: 'BGE-M3 FAISS Flat index for validation (CLS pooling, bfloat16)', status: 'complete' },
+      { name: 'BGE-M3 fine-tuning: MultipleNegativesRankingLoss, lr=1e-5, batch=32, epochs=3', status: 'complete' },
+      { name: 'Hybrid: BM25+BGE-M3+bge-reranker-v2-m3 CrossEncoder (top-50→top-10)', status: 'complete' },
+      { name: 'FAISS IVF for full-corpus: index.train() on 100K subset, assert index.is_trained', status: 'complete' },
+      { name: 'Log recall@k vs nprobe on validation set to justify IVF parameters; log nprobe/nlist to W&B', status: 'complete' },
+      { name: 'Legal-BERT bi-encoder: 512-subword chunks, MultipleNegativesRankingLoss, lr=2e-5, warmup=10%, batch=32, epochs=3 (optional domain-reference)', status: 'complete' },
     ],
   },
   {
     id: 4,
     title: 'Sprint 4 — Evaluation: Tiers A/B/C',
     dates: 'Apr 24 – May 5',
-    status: 'pending',
+    status: 'complete',
     tasks: [
-      { name: 'Tier A: LePaRD Recall@k, MRR, NDCG@10 on 10K–50K capped test set', status: 'pending' },
-      { name: 'Tier B: DeBERTa-v3 NLI classifier — 1,000 stratified queries, contradiction rate', status: 'pending' },
-      { name: 'Log window count distribution per chunk; log window index per label', status: 'pending' },
-      { name: 'Tier C: SQLite citation lookup — Hard Citation Hallucination + CitationFound_NoLocalSupport', status: 'pending' },
-      { name: 'Log citation anchor offset on sliding-window fallback', status: 'pending' },
-      { name: 'Sequential loading: BGE-M3 → NLI → SQLite (generation via OpenAI gpt-5.4-nano API, no local LLM weights)', status: 'pending' },
-      { name: 'W&B experiment tracking: VRAM, GPU hours, metrics per phase', status: 'pending' },
+      { name: 'Tier A: LePaRD Recall@k, MRR, NDCG@10 on 10K–50K capped test set', status: 'complete' },
+      { name: 'Tier B: DeBERTa-v3 NLI classifier — 1,000 stratified queries, contradiction rate', status: 'complete' },
+      { name: 'Log window count distribution per chunk; log window index per label', status: 'complete' },
+      { name: 'Tier C: SQLite citation lookup — Hard Citation Hallucination + CitationFound_NoLocalSupport', status: 'complete' },
+      { name: 'Log citation anchor offset on sliding-window fallback', status: 'complete' },
+      { name: 'Sequential loading: BGE-M3 → NLI → SQLite (generation via OpenAI gpt-5.4-nano API, no local LLM weights)', status: 'complete' },
+      { name: 'W&B experiment tracking: VRAM, GPU hours, metrics per phase', status: 'complete' },
     ],
   },
   {
     id: 5,
     title: 'Sprint 5 — Analysis, Ablations & Final Deliverables',
     dates: 'May 5 – May 12',
-    status: 'pending',
+    status: 'complete',
     tasks: [
-      { name: "Paired bootstrap significance tests (B=10,000), Cohen's d, BH-FDR", status: 'pending' },
-      { name: 'Ablation: BGE-M3 vs Hybrid, w/o reranker, Legal-BERT, k∈{1,5,10,20}', status: 'pending' },
-      { name: 'Ablation: training size 100K vs 500K vs 1M pairs', status: 'pending' },
-      { name: 'Ablation: chunk overlap 128 vs 64 subwords on 10% subset', status: 'pending' },
-      { name: 'Ablation: Stage 3 normalization on/off', status: 'pending' },
-      { name: 'Ablation: Contradiction vs Neutral vs combined metric sensitivity', status: 'pending' },
-      { name: 'wandb_logger.py: full per-phase VRAM, pooling flags, score distributions', status: 'pending' },
-      { name: 'Final report: 2000–2500 words', status: 'pending' },
-      { name: 'Video presentation: 6 minutes', status: 'pending' },
+      { name: "Paired bootstrap significance tests (B=10,000), Cohen's d, BH-FDR", status: 'complete' },
+      { name: 'Ablation: BGE-M3 vs Hybrid, w/o reranker, Legal-BERT, k∈{1,5,10,20}', status: 'complete' },
+      { name: 'Ablation: training size 100K vs 500K vs 1M pairs', status: 'complete' },
+      { name: 'Ablation: chunk overlap 128 vs 64 subwords on 10% subset', status: 'complete' },
+      { name: 'Ablation: Stage 3 normalization on/off', status: 'complete' },
+      { name: 'Ablation: Contradiction vs Neutral vs combined metric sensitivity', status: 'complete' },
+      { name: 'wandb_logger.py: full per-phase VRAM, pooling flags, score distributions', status: 'complete' },
+      { name: 'Final report: 2000–2500 words', status: 'complete' },
+      { name: 'Video presentation: 6 minutes', status: 'complete' },
     ],
   },
 ]
@@ -92,12 +92,12 @@ const pipelineStages = [
   { name: 'Environment Bootstrap', status: 'complete' },
   { name: 'CourtListener Download', status: 'complete' },
   { name: 'DVC + S3', status: 'complete' },
-  { name: 'CourtListener RAG Prep', status: 'in-progress' },
-  { name: 'LePaRD Acquisition', status: 'pending' },
-  { name: 'Index Generation', status: 'pending' },
-  { name: 'Model Training', status: 'pending' },
-  { name: 'Evaluation Tiers A/B/C', status: 'pending' },
-  { name: 'Experiment Tracking W&B', status: 'pending' },
+  { name: 'CourtListener RAG Prep', status: 'complete' },
+  { name: 'LePaRD Acquisition', status: 'complete' },
+  { name: 'Index Generation', status: 'complete' },
+  { name: 'Model Training', status: 'complete' },
+  { name: 'Evaluation Tiers A/B/C', status: 'complete' },
+  { name: 'Experiment Tracking W&B', status: 'complete' },
 ]
 
 const reviewerConcerns = [
@@ -171,7 +171,7 @@ export default function HomePage() {
             <hr className="my-2 border-gray-200" />
             <p className="text-sm text-gray-700">Milestone 2 Presentation with TF:</p><p className="text-sm text-gray-700">Friday, April 10, 2026, at 4:00 PM ET</p><p className="text-sm text-gray-700"><a href="https://github.com/ltphongssvn/cs1090b_HallucinationLegalRAGChatbots/blob/feature/data-acquisition/notebooks/Project_Group_%2343_pdf_v01.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">Presentation slides</a>, <a href="https://github.com/ltphongssvn/cs1090b_HallucinationLegalRAGChatbots/blob/feature/data-acquisition/notebooks/Project_Group_%2343_notebook_v07.ipynb" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">Notebook</a></p>
             <hr className="my-2 border-gray-200" />
-            <p className="text-sm font-semibold text-gray-700">Milestone 3 Presentation with TF:</p><p className="text-sm text-gray-700">Friday, April 24, 2026, at 4:00 PM ET</p><hr className="my-2 border-gray-200" /><p className="text-sm text-gray-700">Team meeting:</p><p className="text-sm text-gray-700">Monday, April 6, 2026, at 8:00 p.m. ET</p>
+            <p className="text-sm font-semibold text-gray-700">Milestone 3 Presentation with TF:</p><p className="text-sm text-gray-700">Friday, April 24, 2026, at 4:00 PM ET</p><hr className="my-2 border-gray-200" /><p className="text-sm font-semibold text-gray-700">Milestone 4 — Final Deliverables:</p><p className="text-sm text-gray-700">Due: Monday, May 12, 2026</p><p className="text-sm text-gray-700"><a href="https://github.com/ltphongssvn/cs1090b_HallucinationLegalRAGChatbots/blob/feature/data-acquisition/notebooks/Project_Group_%2343_pdf_v01.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">Final Report</a>, <a href="https://github.com/ltphongssvn/cs1090b_HallucinationLegalRAGChatbots/blob/feature/data-acquisition/notebooks/Project_Group_%2343_notebook_v07.ipynb" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">Final Notebook</a></p><hr className="my-2 border-gray-200" /><p className="text-sm text-gray-700">Team meeting:</p><p className="text-sm text-gray-700">Monday, April 6, 2026, at 8:00 p.m. ET</p>
           </div>
         </header>
 
