@@ -34,9 +34,9 @@ export default function ArchitecturesPage() {
           </tbody>
         </table>
       </div>
-      <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
-        <h2 className="text-lg font-semibold text-yellow-900 mb-2">API Placeholder</h2>
-        <p className="text-xs text-yellow-700 font-mono">GET /api/architectures — returns architecture configs and training status (pending)</p>
+      <div className="bg-white border border-gray-200 rounded-xl p-6">
+        <h2 className="text-lg font-semibold text-gray-800 mb-2">API Placeholder</h2>
+        <p className="text-xs text-gray-500 font-mono">GET /api/architectures/retrieval -- BM25(k1=1.5,b=0.75) | BGE-M3(dim=1024,max_len=8192,cosine) | RRF(k=60,top-100) | reranker-concat(max_len=1024) | reranker-maxp | reranker-finetuned(7,442 hard-neg, lr=2e-5, 2ep, 22 GPU-h, 4xL4 DDP)</p>
       </div>
     </div>
   )
