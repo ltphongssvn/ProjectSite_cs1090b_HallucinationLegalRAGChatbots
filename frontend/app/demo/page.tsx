@@ -17,7 +17,7 @@ export default function DemoPage() {
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Retrieval Architecture</label>
             <select disabled className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm text-gray-400 bg-gray-50 cursor-not-allowed">
-              <option>Hybrid BM25+BGE-M3+CrossEncoder (recommended)</option>
+              <option>Reranker Fine-tuned (recommended — Hit@1=0.3069)</option>
               <option>BGE-M3 Dense</option>
               <option>BM25</option>
             </select>
@@ -27,10 +27,10 @@ export default function DemoPage() {
           </button>
         </div>
       </div>
-      <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
-        <h2 className="text-lg font-semibold text-yellow-900 mb-2">API Placeholder</h2>
-        <p className="text-xs text-yellow-700 font-mono">POST /api/demo/query — accepts legal question, returns retrieved chunks + generated response (pending)</p>
-        <p className="text-xs text-yellow-700 font-mono mt-1">GET /api/demo/examples — returns precomputed example queries (pending)</p>
+      <div className="bg-white border border-gray-200 rounded-xl p-6">
+        <h2 className="text-lg font-semibold text-gray-800 mb-2">Pipeline Architecture</h2>
+        <p className="text-xs text-gray-500 font-mono">Query → RRF top-100 (BM25+BGE-M3) → fine-tuned bge-reranker-v2-m3 top-5 → Qwen2.5-7B-Instruct (greedy) → gpt-4o-mini judge (FAITHFUL/PARTIAL/HALLUCINATED)</p>
+        <p className="text-xs text-gray-500 font-mono mt-1">Corpus: 7,813,273 chunks from 1,465,484 federal appellate opinions. Hard negatives: 7,442 train pairs, 7 neg/pos from RRF ranks 2-100. Fine-tuning: lr=2e-5, batch=32, 2 epochs, 22 GPU-hours, 4x L4 DDP.</p>
       </div>
     </div>
   )
