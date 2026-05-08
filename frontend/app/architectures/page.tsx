@@ -36,7 +36,7 @@ export default function ArchitecturesPage() {
       </div>
       <div className="bg-white border border-gray-200 rounded-xl p-6">
         <h2 className="text-lg font-semibold text-gray-800 mb-2">Architecture & Training Summary</h2>
-        <p className="text-xs text-gray-500 font-mono">GET /api/architectures/retrieval -- BM25(k1=1.5,b=0.75) | BGE-M3(dim=1024,max_len=8192,cosine) | RRF(k=60,top-100) | reranker-concat(max_len=1024) | reranker-maxp | reranker-finetuned(7,442 hard-neg, lr=2e-5, 2ep, 22 GPU-h, 4xL4 DDP)</p>
+        <p className="text-xs text-gray-500 font-mono">Corpus: 7,813,273 chunks (1,024-subword / 128-overlap, BAAI/bge-m3 tokenizer) from 1,465,484 federal appellate opinions across 13 circuits. BM25 index: 36 min build, 110 min retrieval at 3.2 qps single-thread. BGE-M3: 55 min retrieval at 6.3 qps across 4x L4. Reranker fine-tuned on 7,442 hard-negative pairs (lr=2e-5, batch=32 eff., 2 epochs, 22 GPU-hours, 4x L4 DDP). Hard negatives sampled from RRF ranks 2-100, max 2 chunks/cluster, 7 neg/pos.</p>
       </div>
     </div>
   )
