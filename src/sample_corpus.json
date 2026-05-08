@@ -1,0 +1,212 @@
+[
+  {
+    "id": "1",
+    "opinion_id": "111111",
+    "cluster_id": "c111",
+    "court": "ca9",
+    "text": "The standard for qualified immunity requires courts to determine whether the officer's conduct violated a clearly established statutory or constitutional right of which a reasonable person would have known. Harlow v. Fitzgerald, 457 U.S. 800, 818 (1982). The plaintiff bears the burden of showing that the right was clearly established at the time of the alleged violation."
+  },
+  {
+    "id": "2",
+    "opinion_id": "111112",
+    "cluster_id": "c112",
+    "court": "ca5",
+    "text": "Under the Fourth Amendment, a warrantless search is per se unreasonable unless it falls within a recognized exception. Katz v. United States, 389 U.S. 347, 357 (1967). The exceptions include consent, exigent circumstances, search incident to arrest, and the automobile exception."
+  },
+  {
+    "id": "3",
+    "opinion_id": "111113",
+    "cluster_id": "c113",
+    "court": "ca4",
+    "text": "Habeas corpus relief under 28 U.S.C. \u00a7 2254 is available only where the state court's adjudication resulted in a decision contrary to, or involved an unreasonable application of, clearly established federal law as determined by the Supreme Court. Williams v. Taylor, 529 U.S. 362 (2000)."
+  },
+  {
+    "id": "4",
+    "opinion_id": "111114",
+    "cluster_id": "c114",
+    "court": "ca2",
+    "text": "To establish a Brady violation, a defendant must show that the evidence was favorable to the accused, that it was suppressed by the government, and that the suppression was prejudicial. Brady v. Maryland, 373 U.S. 83 (1963). The materiality standard requires a reasonable probability that the disclosure would have produced a different result."
+  },
+  {
+    "id": "5",
+    "opinion_id": "111115",
+    "cluster_id": "c115",
+    "court": "ca9",
+    "text": "The Chevron doctrine requires courts to defer to an agency's reasonable interpretation of an ambiguous statute that the agency administers. Chevron U.S.A., Inc. v. Natural Resources Defense Council, 467 U.S. 837 (1984). Courts first ask whether Congress has directly spoken to the precise question at issue."
+  },
+  {
+    "id": "6",
+    "opinion_id": "111116",
+    "cluster_id": "c116",
+    "court": "ca5",
+    "text": "Under the Strickland test for ineffective assistance of counsel, a defendant must show both that counsel's performance was deficient and that the deficiency prejudiced the defense. Strickland v. Washington, 466 U.S. 668, 687 (1984). There is a strong presumption that counsel's conduct falls within the wide range of reasonable professional assistance."
+  },
+  {
+    "id": "7",
+    "opinion_id": "111117",
+    "cluster_id": "c117",
+    "court": "ca4",
+    "text": "The Miranda warnings must be given prior to custodial interrogation. Miranda v. Arizona, 384 U.S. 436 (1966). Custody exists when a reasonable person would not feel free to terminate the encounter and leave. The warnings include the right to remain silent and the right to an attorney."
+  },
+  {
+    "id": "8",
+    "opinion_id": "111118",
+    "cluster_id": "c118",
+    "court": "ca9",
+    "text": "Under the excessive force standard, courts must ask whether the officer's actions were objectively reasonable in light of the facts and circumstances confronting them, without regard to their underlying intent or motivation. Graham v. Connor, 490 U.S. 386, 397 (1989). Relevant factors include the severity of the crime, whether the suspect poses an immediate threat, and whether the suspect is actively resisting."
+  },
+  {
+    "id": "9",
+    "opinion_id": "111119",
+    "cluster_id": "c119",
+    "court": "ca2",
+    "text": "The First Amendment prohibition on viewpoint discrimination bars the government from suppressing speech because it disagrees with the speaker's message. Rosenberger v. Rector and Visitors of Univ. of Va., 515 U.S. 819 (1995). Viewpoint discrimination is an egregious form of content discrimination."
+  },
+  {
+    "id": "10",
+    "opinion_id": "111120",
+    "cluster_id": "c120",
+    "court": "ca5",
+    "text": "The doctrine of sovereign immunity bars suits against the United States unless Congress has expressly waived it. United States v. Mitchell, 463 U.S. 206 (1983). The Federal Tort Claims Act waives sovereign immunity for certain tort claims against the government, subject to enumerated exceptions."
+  },
+  {
+    "id": "11",
+    "opinion_id": "111121",
+    "cluster_id": "c121",
+    "court": "ca9",
+    "text": "A Title VII plaintiff must establish a prima facie case of discrimination by showing membership in a protected class, qualification for the position, an adverse employment action, and circumstances suggesting discriminatory intent. McDonnell Douglas Corp. v. Green, 411 U.S. 792 (1973)."
+  },
+  {
+    "id": "12",
+    "opinion_id": "111122",
+    "cluster_id": "c122",
+    "court": "ca4",
+    "text": "The Equal Protection Clause requires that similarly situated persons be treated alike. City of Cleburne v. Cleburne Living Center, 473 U.S. 432 (1985). Laws that classify on the basis of race or national origin are subject to strict scrutiny and must be narrowly tailored to serve a compelling government interest."
+  },
+  {
+    "id": "13",
+    "opinion_id": "111123",
+    "cluster_id": "c123",
+    "court": "ca5",
+    "text": "The commerce power under Article I allows Congress to regulate channels of interstate commerce, instrumentalities of interstate commerce, and activities that substantially affect interstate commerce. United States v. Lopez, 514 U.S. 549 (1995). The substantial effects test requires an economic nexus to interstate commerce."
+  },
+  {
+    "id": "14",
+    "opinion_id": "111124",
+    "cluster_id": "c124",
+    "court": "ca2",
+    "text": "Under the Daubert standard, district courts serve as gatekeepers to ensure that expert testimony is based on sufficient facts or data, is the product of reliable principles and methods, and the witness has applied the principles and methods reliably to the facts of the case. Daubert v. Merrell Dow Pharmaceuticals, 509 U.S. 579 (1993)."
+  },
+  {
+    "id": "15",
+    "opinion_id": "111125",
+    "cluster_id": "c125",
+    "court": "ca9",
+    "text": "The Anti-Terrorism Act imposes civil liability on persons who have aided and abetted acts of international terrorism. Boim v. Holy Land Foundation, 549 F.3d 685 (7th Cir. 2008). Plaintiffs must show that the defendant provided substantial assistance knowing that the primary violator intended to commit terrorism."
+  },
+  {
+    "id": "16",
+    "opinion_id": "111126",
+    "cluster_id": "c126",
+    "court": "ca4",
+    "text": "The Rooker-Feldman doctrine bars lower federal courts from reviewing final state court judgments. Rooker v. Fidelity Trust Co., 263 U.S. 413 (1923); District of Columbia Court of Appeals v. Feldman, 460 U.S. 462 (1983). The doctrine applies where the federal plaintiff lost in state court and seeks review of that judgment."
+  },
+  {
+    "id": "17",
+    "opinion_id": "111127",
+    "cluster_id": "c127",
+    "court": "ca5",
+    "text": "ERISA preempts state laws that relate to employee benefit plans. Shaw v. Delta Air Lines, Inc., 463 U.S. 85 (1983). The preemption clause is to be construed broadly, but there is a savings clause preserving state laws that regulate insurance, banking, or securities."
+  },
+  {
+    "id": "18",
+    "opinion_id": "111128",
+    "cluster_id": "c128",
+    "court": "ca9",
+    "text": "The doctrine of res judicata bars relitigation of claims that were or could have been raised in prior litigation between the same parties. Federated Department Stores v. Moitie, 452 U.S. 394 (1981). The doctrine requires a final judgment on the merits, identity of parties, and identity of claims."
+  },
+  {
+    "id": "19",
+    "opinion_id": "111129",
+    "cluster_id": "c129",
+    "court": "ca2",
+    "text": "A plaintiff alleging copyright infringement must prove ownership of a valid copyright and copying of original expression. Feist Publications v. Rural Telephone Service, 499 U.S. 340 (1991). Originality requires independent creation and a minimal degree of creativity; facts themselves are not copyrightable."
+  },
+  {
+    "id": "20",
+    "opinion_id": "111130",
+    "cluster_id": "c130",
+    "court": "ca4",
+    "text": "The Fair Use doctrine permits limited use of copyrighted material without permission. Campbell v. Acuff-Rose Music, 510 U.S. 569 (1994). Courts consider four factors: the purpose and character of the use, the nature of the copyrighted work, the amount used, and the effect on the market for the original."
+  },
+  {
+    "id": "21",
+    "opinion_id": "111131",
+    "cluster_id": "c131",
+    "court": "ca9",
+    "text": "The due process clause of the Fourteenth Amendment prohibits states from depriving persons of life, liberty, or property without due process of law. Mathews v. Eldridge, 424 U.S. 319 (1976). The balancing test weighs the private interest, risk of erroneous deprivation, and the government's interest."
+  },
+  {
+    "id": "22",
+    "opinion_id": "111132",
+    "cluster_id": "c132",
+    "court": "ca5",
+    "text": "Federal jurisdiction under 28 U.S.C. \u00a7 1332 requires complete diversity of citizenship and an amount in controversy exceeding $75,000. Caterpillar Inc. v. Lewis, 519 U.S. 61 (1996). For purposes of diversity, a corporation is a citizen of its state of incorporation and its principal place of business."
+  },
+  {
+    "id": "23",
+    "opinion_id": "111133",
+    "cluster_id": "c133",
+    "court": "ca2",
+    "text": "The Sixth Amendment right to a speedy trial attaches when the accused is arrested or indicted. Barker v. Wingo, 407 U.S. 514 (1972). Courts apply a balancing test considering length of delay, reason for delay, defendant's assertion of the right, and prejudice to the defendant."
+  },
+  {
+    "id": "24",
+    "opinion_id": "111134",
+    "cluster_id": "c134",
+    "court": "ca4",
+    "text": "Collateral estoppel, or issue preclusion, bars relitigation of an issue actually litigated and necessarily decided in prior proceedings. Parklane Hosiery Co. v. Shore, 439 U.S. 322 (1979). The doctrine applies when the identical issue was actually litigated and the determination was essential to the prior judgment."
+  },
+  {
+    "id": "25",
+    "opinion_id": "111135",
+    "cluster_id": "c135",
+    "court": "ca9",
+    "text": "The takings clause of the Fifth Amendment prohibits the government from taking private property for public use without just compensation. Penn Central Transportation Co. v. City of New York, 438 U.S. 104 (1978). A regulatory taking occurs when the government regulation goes too far in restricting property use."
+  },
+  {
+    "id": "26",
+    "opinion_id": "111136",
+    "cluster_id": "c136",
+    "court": "ca5",
+    "text": "Standing requires that the plaintiff suffered an injury in fact that is concrete, particularized, and actual or imminent; that the injury is fairly traceable to the defendant's conduct; and that the injury is likely to be redressed by a favorable decision. Lujan v. Defenders of Wildlife, 504 U.S. 555 (1992)."
+  },
+  {
+    "id": "27",
+    "opinion_id": "111137",
+    "cluster_id": "c137",
+    "court": "ca9",
+    "text": "The doctrine of exhaustion of administrative remedies requires litigants to pursue all available administrative remedies before seeking judicial review. McCarthy v. Madigan, 503 U.S. 140 (1992). Courts may waive exhaustion when administrative remedies are inadequate or futile."
+  },
+  {
+    "id": "28",
+    "opinion_id": "111138",
+    "cluster_id": "c138",
+    "court": "ca2",
+    "text": "The Eighth Amendment prohibits cruel and unusual punishment. Estelle v. Gamble, 429 U.S. 97 (1976). Prison officials violate the Eighth Amendment when they are deliberately indifferent to serious medical needs of prisoners. The standard requires both objective and subjective components."
+  },
+  {
+    "id": "29",
+    "opinion_id": "111139",
+    "cluster_id": "c139",
+    "court": "ca4",
+    "text": "Personal jurisdiction requires that the defendant have minimum contacts with the forum state such that maintenance of the suit does not offend traditional notions of fair play and substantial justice. International Shoe Co. v. Washington, 326 U.S. 310 (1945). Specific jurisdiction requires a nexus between the contacts and the claims."
+  },
+  {
+    "id": "30",
+    "opinion_id": "111140",
+    "cluster_id": "c140",
+    "court": "ca9",
+    "text": "The Prison Litigation Reform Act requires prisoners to exhaust available administrative remedies before filing suit under federal law. Porter v. Nussle, 534 U.S. 516 (2002). The exhaustion requirement applies to all inmate suits about prison life, whether they involve general circumstances or particular episodes."
+  }
+]
