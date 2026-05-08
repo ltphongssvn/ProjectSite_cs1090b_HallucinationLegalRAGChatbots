@@ -54,9 +54,9 @@ export default function ResultsPage() {
         ))}
       </div>
       <div className="bg-white border border-gray-200 rounded-xl p-6">
-        <h2 className="text-lg font-semibold text-gray-800 mb-2">API Placeholder</h2>
-        <p className="text-xs text-gray-500 font-mono">GET /api/results -- returns final_summary.json (SHA: 43eec4d3...) | 5 ablations | Pearson r=-0.9624</p>
-        <p className="text-xs text-gray-500 font-mono mt-1">GET /api/results/stratified -- HEAD/TORSO/TAIL breakdown (inverted long-tail: TAIL x1.66-2.26x HEAD for hub variants)</p>
+        <h2 className="text-lg font-semibold text-gray-800 mb-2">Final Results Summary</h2>
+        <p className="text-xs text-gray-500 font-mono">final_summary.json SHA-256: 43eec4d3023f9485... | 5 ablations x 20,877 queries = 104,385 LLM judgments | Generator: Qwen2.5-7B-Instruct (greedy, 4x L4) | Judge: gpt-4o-mini (~$53)</p>
+        <p className="text-xs text-gray-500 font-mono mt-1">Stratified (HEAD/TORSO/TAIL): TAIL Hit@10 exceeds HEAD by 1.66x-2.26x for hub variants. Fine-tuned reranker flips pattern: HEAD=0.3596, TORSO=0.3694, TAIL=0.3292. W&B: 45 offline runs, 191.64GB DVC/S3.</p>
       </div>
     </div>
   )
