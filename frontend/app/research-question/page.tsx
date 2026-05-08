@@ -7,9 +7,9 @@ export default function ResearchQuestionPage() {
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
           <h2 className="text-xl font-semibold text-blue-900 mb-3">Hypotheses</h2>
           <ul className="space-y-3 text-sm text-blue-800">
-            <li><strong>H1:</strong> Hybrid BM25+BGE-M3+CrossEncoder achieves significantly higher Recall@10 than BM25 and BGE-M3 alone (paired bootstrap, p &lt; 0.05).</li>
-            <li><strong>H2:</strong> Architectures with higher Recall@10 produce significantly lower contradiction rate in downstream generation (normalized by claim count and per 1K tokens).</li>
-            <li><strong>H3:</strong> Hybrid achieves higher Recall@10 than BGE-M3 alone.</li>
+            <li><strong>H1:</strong> Hybrid BM25+BGE-M3+CrossEncoder achieves significantly higher Hit@10 than BM25 and BGE-M3 alone (paired bootstrap, p &lt; 0.05).</li>
+            <li><strong>H2:</strong> Architectures with higher Hit@10 produce significantly lower contradiction rate in downstream generation (normalized by claim count and per 1K tokens).</li>
+            <li><strong>H3:</strong> Hybrid achieves higher Hit@10 than BGE-M3 alone.</li>
           </ul>
         </div>
         <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
