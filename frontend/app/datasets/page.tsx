@@ -1,7 +1,7 @@
 export default function DatasetsPage() {
   const datasets = [
-    { name: 'CourtListener Federal Appellate', size: '1,465,484 opinions', license: 'CC BY-ND 4.0', role: 'Retrieval corpus + SQLite citation index', status: '✅ Complete' },
-    { name: 'LePaRD (ACL 2024)', size: '~4M pairs (cap 500K–1M)', license: 'Open research', role: 'Training + evaluation (Priority 1)', status: '⏳ Pending' },
+    { name: 'CourtListener Federal Appellate', size: '1,465,484 opinions → 7,813,273 chunks (1,024-subword, 128-overlap)', license: 'CC BY-ND 4.0', role: 'Retrieval corpus + SQLite citation index', status: '✅ Complete' },
+    { name: 'LePaRD (ACL 2024)', size: '4M pairs → 2,429,533 verified (eyecite+rapidfuzz bridge, 60.74%) → 20,877 unique test queries', license: 'Open research (Mahari et al. ACL 2024)', role: 'Hard-negative mining + retrieval evaluation', status: '✅ Complete' },
   ]
   return (
     <div className="w-full px-6 py-12 max-w-4xl mx-auto">

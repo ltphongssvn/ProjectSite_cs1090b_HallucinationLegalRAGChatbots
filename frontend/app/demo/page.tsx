@@ -23,7 +23,7 @@ export default function DemoPage() {
             </select>
           </div>
           <button disabled className="w-full bg-blue-300 text-white font-semibold py-3 rounded-lg cursor-not-allowed text-sm">
-            ⏳ Demo available after Sprint 4 evaluation (May 2025)
+            ⏳ Demo available post-submission — generator: Qwen2.5-7B-Instruct, judge: gpt-4o-mini
           </button>
         </div>
       </div>
