@@ -22,7 +22,7 @@ export default function DatasetsPage() {
       </div>
       <div className="bg-white border border-gray-200 rounded-xl p-6">
         <h2 className="text-lg font-semibold text-gray-800 mb-2">Dataset & DVC Provenance Summary</h2>
-        <p className="text-xs text-gray-500 font-mono">CourtListener: 159 shards, 7.6GB, SHA-256 manifest (corpus_manifest_sha: 7e5cbae1...), git_rev: 90a35201. LePaRD: 5.78GB JSONL, SHA-256: abe787c0..., HF revision: 0194f95c, DVC-tracked at repo root (123B pointer). Verified subset: 2,429,533 pairs (3.6GB), gold_pairs_test: 45,000 -> 20,877 unique. DVC S3: s3://cs1090b-hallucinationlegalragchatbots, 191.64GB total, 206 objects, sync clean.</p>
+        <p className="text-xs text-gray-500 font-mono">CourtListener: 159 shards, 7.6GB, SHA-256 manifest (corpus_manifest_sha: 7e5cbae1...), git_rev: 90a35201. LePaRD: 5.78GB JSONL, SHA-256: abe787c0..., HF revision: 0194f95c, DVC-tracked at repo root (123B pointer). Verified subset: 2,429,533 pairs (3.6GB), gold_pairs_test: 45,000 &rarr; 20,877 unique. DVC S3: s3://cs1090b-hallucinationlegalragchatbots, 191.64GB total, 206 objects, sync clean.</p>
       </div>
     </div>
   )
