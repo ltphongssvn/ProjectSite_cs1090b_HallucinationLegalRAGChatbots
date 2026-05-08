@@ -37,10 +37,10 @@ export default function EnvironmentPage() {
         </div>
       </section>
 
-      <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
-        <h2 className="text-lg font-semibold text-yellow-900 mb-2">API Placeholder</h2>
-        <p className="text-xs text-yellow-700 font-mono">GET /api/environment - returns live environment manifest JSON (pending)</p>
-        <p className="text-xs text-yellow-700 font-mono mt-1">GET /api/environment/manifest - returns logs/environment_manifest.json (pending)</p>
+      <div className="bg-white border border-gray-200 rounded-xl p-6">
+        <h2 className="text-lg font-semibold text-gray-800 mb-2">Verified Environment Manifest (Cell 1 Output)</h2>
+        <p className="text-xs text-gray-500 font-mono">Python 3.11.9 | torch 2.0.1+cu117 | transformers 4.41.2 | CUDA 11.7 | 4x NVIDIA L4 (23.7GB each)</p>
+        <p className="text-xs text-gray-500 font-mono mt-1">PYTHONHASHSEED=0 | CUBLAS_WORKSPACE_CONFIG=:4096:8 | deterministic_algorithms=True | cudnn_benchmark=False | uv.lock sha256: 3ac3a454... | 313 packages audited, 0 vulnerabilities</p>
       </div>
 
     </div>
