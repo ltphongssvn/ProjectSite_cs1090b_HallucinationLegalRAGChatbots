@@ -128,6 +128,73 @@ export default function DemoPage() {
         <p className="text-xs text-gray-500 font-mono">Query &rarr; BM25(k1=1.5,b=0.75) top-5 chunks &rarr; gpt-4o-mini generation (grounded) &rarr; gpt-4o-mini judge (FAITHFUL/PARTIAL/HALLUCINATED)</p>
         <p className="text-xs text-gray-500 font-mono mt-1">Sample corpus: 30 federal appellate opinion chunks. Hard negatives: 7,442 train pairs. Fine-tuning: lr=2e-5, batch=32, 2 epochs, 22 GPU-hours.</p>
       </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl p-6 mt-6">
+        <h2 className="text-lg font-semibold text-gray-800 mb-4">Sample Test Questions</h2>
+        <p className="text-xs text-gray-500 mb-4">Copy and paste into the query box above to test different faithfulness outcomes.</p>
+
+        <div className="mb-4">
+          <h3 className="text-sm font-semibold text-green-700 mb-2">Likely FAITHFUL</h3>
+          <ul className="space-y-1">
+            {[
+              "What is the standard for qualified immunity?",
+              "What are the exceptions to the Fourth Amendment warrant requirement?",
+              "How does Brady v. Maryland define prosecutorial disclosure obligations?",
+              "What test does Strickland v. Washington establish for ineffective assistance of counsel?",
+              "What must a plaintiff prove to establish standing under Lujan v. Defenders of Wildlife?",
+              "What is the Chevron deference doctrine?",
+              "How does Miranda v. Arizona define custodial interrogation?",
+              "What factors does Graham v. Connor use to evaluate excessive force claims?",
+              "What is required for federal diversity jurisdiction under 28 U.S.C. § 1332?",
+              "How does the Eighth Amendment apply to prisoner medical care?",
+            ].map(q => (
+              <li key={q} className="text-xs text-gray-700 bg-green-50 border border-green-100 rounded px-3 py-1.5 cursor-pointer hover:bg-green-100"
+                onClick={() => setQuestion(q)}>
+                {q}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mb-4">
+          <h3 className="text-sm font-semibold text-yellow-700 mb-2">Likely PARTIAL</h3>
+          <ul className="space-y-1">
+            {[
+              "How does ERISA preempt state insurance regulations?",
+              "What constitutes a hostile work environment under Title VII?",
+              "How does the Fourth Amendment excessive force standard apply to pretrial detainees versus convicted prisoners?",
+              "What constitutional standards apply when police use deadly force during a warrantless arrest?",
+              "How do due process protections under Mathews v. Eldridge apply to prisoner disciplinary hearings?",
+              "How does sovereign immunity limit civil rights claims against federal officers under Bivens?",
+              "What standing requirements must a plaintiff meet to challenge an unconstitutional search?",
+            ].map(q => (
+              <li key={q} className="text-xs text-gray-700 bg-yellow-50 border border-yellow-100 rounded px-3 py-1.5 cursor-pointer hover:bg-yellow-100"
+                onClick={() => setQuestion(q)}>
+                {q}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-semibold text-red-700 mb-2">Likely HALLUCINATED</h3>
+          <ul className="space-y-1">
+            {[
+              "What is the legal standard for asylum claims based on political persecution?",
+              "How does the Foreign Sovereign Immunities Act apply to state-sponsored terrorism?",
+              "What are the requirements for class certification under Rule 23?",
+              "How does the Confrontation Clause apply to hearsay in criminal trials?",
+              "What is the standard for preliminary injunctions in patent cases?",
+              "How does the Americans with Disabilities Act define reasonable accommodation?",
+            ].map(q => (
+              <li key={q} className="text-xs text-gray-700 bg-red-50 border border-red-100 rounded px-3 py-1.5 cursor-pointer hover:bg-red-100"
+                onClick={() => setQuestion(q)}>
+                {q}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   )
 }
