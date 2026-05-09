@@ -26,14 +26,14 @@ describe('Missing Coding Tasks', () => {
   })
 
   // Sprint 4
-  it('renders window count distribution task', () => {
+  it('renders hard negative mining task', () => {
     render(<HomePage />)
-    expect(screen.getAllByText(/window count/i).length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText(/Hard-negative mining|hard.negative/i).length).toBeGreaterThanOrEqual(1)
   })
 
-  it('renders citation anchor offset task', () => {
+  it('renders RAG generation task', () => {
     render(<HomePage />)
-    expect(screen.getAllByText(/anchor offset/i).length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText(/Qwen2.5|104,385/i).length).toBeGreaterThanOrEqual(1)
   })
 
   // Sprint 5
