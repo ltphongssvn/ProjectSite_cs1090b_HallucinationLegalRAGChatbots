@@ -154,7 +154,6 @@ export default function HomePage() {
               Harvard University · 2025-2026 Spring
             </p>
           </div>
-          </div>
           <div className="bg-white border border-gray-200 rounded-xl px-6 py-4 shadow-sm" style={{flexBasis:"33%",minWidth:"220px"}}>
             <p className="text-base font-bold text-gray-800 mb-2">
               Project Group - #43:{' '}
