@@ -79,7 +79,7 @@ def demo_query(req: QueryRequest) -> QueryResponse:
 
     gen_resp = client.chat.completions.create(
         model="gpt-4o-mini",
-        messages=[{"role": "user", "content": f"""You are a legal research assistant. You MUST answer using ONLY the exact information in the provided context passages. Do NOT use any outside legal knowledge. If the context does not directly address the question, you MUST say exactly: "The provided context does not contain sufficient information to answer this question." Do not guess, infer, or supplement with legal knowledge not present in the context.
+        messages=[{"role": "user", "content": f"""You are a legal research assistant. Answer the question using the provided context passages as your primary source. You may supplement with general legal knowledge where the context is incomplete, but clearly ground your answer in the context first. Cite relevant case law from both the context and your knowledge.
 
 Context:
 {context}
@@ -95,8 +95,8 @@ Question: {req.question}"""}],
         messages=[{"role": "user", "content": f"""You are a strict hallucination judge for a legal RAG system. Classify the answer strictly:
 
 - FAITHFUL: Every claim in the answer is directly and explicitly supported by the context. No outside knowledge used.
-- PARTIAL: Some claims are supported by context but the answer also contains claims, case names, legal standards, or reasoning NOT found in the context.
-- HALLUCINATED: The answer contains significant legal claims, case citations, or reasoning NOT present in the context. Also label HALLUCINATED if the answer refuses to answer but the context clearly does contain relevant information.
+- PARTIAL: (1) The answer uses some context but adds claims/citations NOT in the context, OR (2) the question is partially related to the context topics but the answer draws on outside knowledge to fill gaps.
+- HALLUCINATED: The answer contains legal claims, citations, or reasoning entirely absent from the context, OR the answer says "context insufficient" when the context is completely unrelated to the question topic.
 
 Be strict: if ANY claim in the answer cannot be traced to the context, label it PARTIAL or HALLUCINATED.
 
