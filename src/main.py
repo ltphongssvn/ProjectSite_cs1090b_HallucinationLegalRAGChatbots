@@ -79,7 +79,7 @@ def demo_query(req: QueryRequest) -> QueryResponse:
 
     gen_resp = client.chat.completions.create(
         model="gpt-4o-mini",
-        messages=[{"role": "user", "content": f"""You are a legal research assistant. Answer using ONLY the provided context. Cite relevant case law.
+        messages=[{"role": "user", "content": f"""You are a legal research assistant. You MUST answer using ONLY the exact information in the provided context passages. Do NOT use any outside legal knowledge. If the context does not directly address the question, you MUST say exactly: "The provided context does not contain sufficient information to answer this question." Do not guess, infer, or supplement with legal knowledge not present in the context.
 
 Context:
 {context}
@@ -92,7 +92,13 @@ Question: {req.question}"""}],
 
     judge_resp = client.chat.completions.create(
         model="gpt-4o-mini",
-        messages=[{"role": "user", "content": f"""Classify this legal RAG answer as FAITHFUL, PARTIAL, or HALLUCINATED based on the context.
+        messages=[{"role": "user", "content": f"""You are a strict hallucination judge for a legal RAG system. Classify the answer strictly:
+
+- FAITHFUL: Every claim in the answer is directly and explicitly supported by the context. No outside knowledge used.
+- PARTIAL: Some claims are supported by context but the answer also contains claims, case names, legal standards, or reasoning NOT found in the context.
+- HALLUCINATED: The answer contains significant legal claims, case citations, or reasoning NOT present in the context. Also label HALLUCINATED if the answer refuses to answer but the context clearly does contain relevant information.
+
+Be strict: if ANY claim in the answer cannot be traced to the context, label it PARTIAL or HALLUCINATED.
 
 Context:
 {context}
@@ -100,7 +106,7 @@ Context:
 Answer:
 {answer}
 
-Respond with JSON only: {{"label": "FAITHFUL|PARTIAL|HALLUCINATED", "reason": "brief explanation"}}"""}],
+Respond with JSON only: {{"label": "FAITHFUL|PARTIAL|HALLUCINATED", "reason": "cite specific claims that are supported or unsupported"}}"""}],
         temperature=0.0,
         max_tokens=150,
     )
