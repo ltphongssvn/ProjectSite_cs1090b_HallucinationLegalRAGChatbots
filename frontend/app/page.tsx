@@ -143,7 +143,7 @@ export default function HomePage() {
 
         {/* Header */}
         <header className="flex flex-col sm:flex-row justify-between items-start gap-6">
-          <div>
+          <div className="flex-[2] min-w-0">
             <h1 className="text-4xl font-bold text-gray-900 mb-1">
               Reducing Hallucination in Legal RAG Chatbots: A Comparative Study of Deep Learning Retrieval Architectures
             </h1>
@@ -154,7 +154,8 @@ export default function HomePage() {
               Harvard University · 2025-2026 Spring
             </p>
           </div>
-          <div className="bg-white border border-gray-200 rounded-xl px-6 py-4 shadow-sm min-w-[180px]">
+          </div>
+          <div className="bg-white border border-gray-200 rounded-xl px-6 py-4 shadow-sm" style={{flexBasis:"33%",minWidth:"220px"}}>
             <p className="text-base font-bold text-gray-800 mb-2">
               Project Group - #43:{' '}
               <a href="https://github.com/ltphongssvn/cs1090b_HallucinationLegalRAGChatbots" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">GitHub</a>
