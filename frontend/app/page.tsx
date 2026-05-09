@@ -145,7 +145,7 @@ export default function HomePage() {
         <header className="flex flex-col sm:flex-row justify-between items-start gap-6">
           <div>
             <h1 className="text-4xl font-bold text-gray-900 mb-1">
-              Reducing Hallucination in Legal RAG Chatbots
+              Reducing Hallucination in Legal RAG Chatbots: A Comparative Study of Deep Learning Retrieval Architectures
             </h1>
             <p className="text-lg font-semibold text-gray-700 mb-1">
               COMPSCI 1090B: Data Science 2: Advanced Topics in Data Science
