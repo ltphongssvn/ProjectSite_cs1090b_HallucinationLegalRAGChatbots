@@ -15,9 +15,9 @@ describe('Missing Coding Tasks', () => {
   })
 
   // Sprint 3
-  it('renders Legal-BERT index task', () => {
+  it('renders BGE-M3 fine-tuning task', () => {
     render(<HomePage />)
-    expect(screen.getAllByText(/Legal-BERT/i).length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText(/BGE-M3 fine-tuning|MultipleNegativesRankingLoss/i).length).toBeGreaterThanOrEqual(1)
   })
 
   it('renders nprobe IVF validation task', () => {

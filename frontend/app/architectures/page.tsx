@@ -6,7 +6,6 @@ export default function ArchitecturesPage() {
     { id: 'c2', name: 'Reranker Concat (hub)', type: 'CrossEncoder hub', role: 'Out-of-domain reranker', params: 'bge-reranker-v2-m3, 2-chunk concat, max_length=1024', status: 'pending' },
     { id: 'c3', name: 'Reranker MaxP (hub)', type: 'CrossEncoder hub MaxP', role: 'Chunk-level max-pool', params: 'bge-reranker-v2-m3, per-chunk MaxP, max_length=1024', status: 'pending' },
     { id: 'c4', name: 'Reranker Fine-tuned', type: 'CrossEncoder fine-tuned on legal hard negatives', role: 'Expected strongest (+980% Hit@1)', params: 'bge-reranker-v2-m3 + 7,442 legal hard negatives, lr=2e-5, batch=32, epochs=2', status: 'pending' },
-    { id: 'd', name: 'Legal-BERT Bi-Encoder', type: 'Domain-specific Transformer', role: 'Optional domain-reference', params: 'lr=2e-5, warmup=10%, batch=32, epochs=3, 512-subword chunks', status: 'pending' },
   ]
   return (
     <div className="w-full px-6 py-12 max-w-5xl mx-auto">

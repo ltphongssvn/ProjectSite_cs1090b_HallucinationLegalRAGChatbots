@@ -51,7 +51,6 @@ const sprints = [
       { name: 'Hybrid: BM25+BGE-M3+bge-reranker-v2-m3 CrossEncoder (top-50→top-10)', status: 'complete' },
       { name: 'FAISS IVF for full-corpus: index.train() on 100K subset, assert index.is_trained', status: 'complete' },
       { name: 'Log Hit@k vs nprobe on validation set to justify IVF parameters; log nprobe/nlist to W&B', status: 'complete' },
-      { name: 'Legal-BERT bi-encoder: 512-subword chunks, MultipleNegativesRankingLoss, lr=2e-5, warmup=10%, batch=32, epochs=3 (optional domain-reference)', status: 'complete' },
     ],
   },
   {
@@ -76,7 +75,7 @@ const sprints = [
     status: 'complete',
     tasks: [
       { name: "Paired bootstrap significance tests (B=10,000), Cohen's d, BH-FDR", status: 'complete' },
-      { name: 'Ablation: BGE-M3 vs Hybrid, w/o reranker, Legal-BERT, k∈{1,5,10,20}', status: 'complete' },
+      { name: 'Ablation: BGE-M3 vs Hybrid, w/o reranker, k∈{1,5,10,20}', status: 'complete' },
       { name: 'Ablation: training size 100K vs 500K vs 1M pairs', status: 'complete' },
       { name: 'Ablation: chunk overlap 128 vs 64 subwords on 10% subset', status: 'complete' },
       { name: 'Ablation: Stage 3 normalization on/off', status: 'complete' },
@@ -105,7 +104,7 @@ const reviewerConcerns = [
     id: 'annotation',
     label: 'TF Reviewer',
     concern: 'It is not clear where the human-annotated hallucination rate comes from. The proposal does not mention how embedding methods will be trained to encode legal text.',
-    response: 'Hallucination measurement is fully automated — no human annotation required. Three tiers: (A) LePaRD 4M+ expert-annotated citation pairs as gold-standard retrieval ground truth; (B) DeBERTa-v3-large NLI classifier (MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli) classifies each atomic claim against retrieved chunks locally — contradiction rate normalized by claim count and per 1K tokens; (C) SQLite citation index for hard citation hallucination detection. Embedding training: BGE-M3 fine-tuned with MultipleNegativesRankingLoss on 500K–1M LePaRD pairs (lr=1e-5, batch=32, epochs=3); Legal-BERT optional reference (lr=2e-5).',
+    response: 'Hallucination measurement is fully automated — no human annotation required. Three tiers: (A) LePaRD 4M+ expert-annotated citation pairs as gold-standard retrieval ground truth; (B) DeBERTa-v3-large NLI classifier (MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli) classifies each atomic claim against retrieved chunks locally — contradiction rate normalized by claim count and per 1K tokens; (C) SQLite citation index for hard citation hallucination detection. Embedding training: BGE-M3 fine-tuned with MultipleNegativesRankingLoss on 500K–1M LePaRD pairs (lr=1e-5, batch=32, epochs=3); BGE-M3 is the sole embedding model.',
     resolved: true,
   },
   {
@@ -196,7 +195,7 @@ export default function HomePage() {
               <li className="ml-4 flex items-start gap-2"><span className="mt-1 text-blue-500 font-bold">–</span><span><strong>Tier A — Retrieval ground truth:</strong> LePaRD 4M+ expert-annotated citation pairs serve as gold-standard retrieval ground truth; evaluation capped at 10K–50K pairs. Metrics: Hit@k, MRR, NDCG@10.</span></li>
               <li className="ml-4 flex items-start gap-2"><span className="mt-1 text-blue-500 font-bold">–</span><span><strong>Tier B — LLM-as-Judge hallucination measurement:</strong> <code className="bg-gray-100 px-1 rounded text-xs">gpt-4o-mini</code> judges each generation (FAITHFUL / PARTIAL / HALLUCINATED) against the contexts shown to the generator. 5 ablations x 20,877 queries = 104,385 judgments. Budget ~$53. 95% CIs +-0.86% to +-1.96%. Pearson r = -0.9624 (r2=92.6%) between Hit@10 and hallucination rate.</span></li>
               <li className="ml-4 flex items-start gap-2"><span className="mt-1 text-blue-500 font-bold">–</span><span><strong>Tier C — Stratified retrieval ceiling analysis:</strong> HEAD/TORSO/TAIL evaluation by gold-cluster citation frequency. Hit@100=0.375 ceiling defines irreducible hallucination floor ~56%. Inverted long-tail finding: TAIL Hit@10 exceeds HEAD by 1.66x-2.26x across hub variants (rare precedents have distinctive contexts; constitutional canon has generic ones). Fine-tuning flips the pattern: HEAD &gt;= TORSO &gt; TAIL.</span></li>
-              <li className="flex items-start gap-2"><span className="mt-1 text-green-600 font-bold">•</span><span><strong>Embedding model training:</strong> BGE-M3 fine-tuned with <code className="bg-gray-100 px-1 rounded text-xs">MultipleNegativesRankingLoss</code> on 500K–1M capped LePaRD pairs (lr=1e-5, warmup=10%, batch=32, epochs=3). CLS pooling enforced per BAAI config; runtime assertion in <code className="bg-gray-100 px-1 rounded text-xs">model_loader.py</code>; pooling flags logged to W&amp;B. Legal-BERT optional domain-reference (lr=2e-5, batch=32, epochs=3). BM25 requires no training (k1=1.5, b=0.75). All architectures evaluated with Qwen2.5-7B-Instruct held constant (greedy decoding, local 4x L4); hallucination judged by gpt-4o-mini.</span></li>
+              <li className="flex items-start gap-2"><span className="mt-1 text-green-600 font-bold">•</span><span><strong>Embedding model training:</strong> BGE-M3 fine-tuned with <code className="bg-gray-100 px-1 rounded text-xs">MultipleNegativesRankingLoss</code> on 500K–1M capped LePaRD pairs (lr=1e-5, warmup=10%, batch=32, epochs=3). CLS pooling enforced per BAAI config; runtime assertion in <code className="bg-gray-100 px-1 rounded text-xs">model_loader.py</code>; pooling flags logged to W&amp;B. BM25 requires no training (k1=1.5, b=0.75). All architectures evaluated with Qwen2.5-7B-Instruct held constant (greedy decoding, local 4x L4); hallucination judged by gpt-4o-mini.</span></li>
             </ul>
           </div>
 
