@@ -4,6 +4,8 @@ FROM node:22-slim AS builder
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
+ARG NEXT_PUBLIC_BACKEND_URL
+ENV NEXT_PUBLIC_BACKEND_URL=$NEXT_PUBLIC_BACKEND_URL
 COPY . .
 RUN npm run build
 
